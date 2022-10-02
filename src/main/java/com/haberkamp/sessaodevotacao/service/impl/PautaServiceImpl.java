@@ -36,7 +36,7 @@ public class PautaServiceImpl implements PautaService {
     @Override
     public PautaDTO abrirPauta(PautaDTO pauta) {
 
-        Pauta entity = repository.findById(pauta.getId()).orElseThrow(EntityNotFoundException::new);
+        Pauta entity = repository.findById(pauta.getId()).orElseThrow(() -> new EntityNotFoundException("Pauta nao cadastrada"));
 
         entity.setHorarioInicio(LocalDateTime.now());
         entity.setHorarioFim(LocalDateTime.now().plusMinutes(pauta.getTempoAbertoEmMinutos()));
