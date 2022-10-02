@@ -2,6 +2,7 @@ package com.haberkamp.sessaodevotacao.service.impl;
 
 import com.haberkamp.sessaodevotacao.dto.ContagemVotosDTO;
 import com.haberkamp.sessaodevotacao.dto.VotoDTO;
+import com.haberkamp.sessaodevotacao.exceptions.BusinessException;
 import com.haberkamp.sessaodevotacao.mapper.VotoMapper;
 import com.haberkamp.sessaodevotacao.repository.VotoRepository;
 import com.haberkamp.sessaodevotacao.service.PautaService;
@@ -23,14 +24,12 @@ public class VotoServiceImpl implements VotoService {
     @Autowired
     private PautaService pautaService;
 
-    //todo: tem que melhorar MUITO esse método
-
     @Override
     public VotoDTO save(VotoDTO voto) throws Exception {
         if (pautaService.isPautaAberta(voto.getPautaId())) {
             return mapper.toDto(repository.save(mapper.toEntity(voto)));
         }
-        throw new Exception("Erro");
+        throw new BusinessException("A pauta esta fechada");
     }
 
     @Override
