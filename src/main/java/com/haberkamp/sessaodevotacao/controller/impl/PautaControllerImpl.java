@@ -18,9 +18,6 @@ public class PautaControllerImpl implements PautaController {
     @Autowired
     private PautaService service;
 
-    @Autowired
-    private PautaRepository pautaRepository;
-
     @Override
     @PostMapping(value = "/cadastrar", produces = "application/json", consumes = "application/json")
     public PautaResponseDTO cadastrar(@RequestBody PautaRequestDTO pauta) {
@@ -31,12 +28,6 @@ public class PautaControllerImpl implements PautaController {
     @PutMapping(value = "/abrir", produces = "application/json", consumes = "application/json")
     public PautaResponseDTO abrirPauta(@RequestBody PautaRequestDTO pauta) {
         return service.abrirPauta(pauta);
-    }
-
-    @Override
-    @GetMapping(value = "/findAll")
-    public List<Pauta> findAll() {
-        return pautaRepository.findAll();
     }
 
 }

@@ -12,5 +12,4 @@ public interface PautaController {
 
     PautaResponseDTO abrirPauta(PautaRequestDTO pauta);
 
-    List<Pauta> findAll();
 }

@@ -21,9 +21,6 @@ public class VotoControllerImpl implements VotoController {
     @Autowired
     private VotoService service;
 
-    @Autowired
-    private VotoRepository repository;
-
     @Override
     @PostMapping(value =  "/votar", produces = "application/json", consumes = "application/json")
     public ResponseEntity<VotoDTO> votar(@RequestBody VotoDTO voto) throws Exception {
@@ -32,7 +29,6 @@ public class VotoControllerImpl implements VotoController {
                 .status(HttpStatus.ACCEPTED)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(votoDTO);
-
     }
 
     @Override
@@ -44,12 +40,5 @@ public class VotoControllerImpl implements VotoController {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(resultadoApuracao);
     }
-
-    @Override
-    @GetMapping("/findAll")
-    public List<Voto> findAll() {
-        return repository.findAll();
-    }
-
 
 }

@@ -13,6 +13,4 @@ public interface VotoController {
 
     ResponseEntity<ContagemVotosDTO> obterContagemVotos(Long pautaId);
 
-    List<Voto> findAll();
-
 }
