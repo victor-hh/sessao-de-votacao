@@ -1,6 +1,7 @@
 package com.haberkamp.sessaodevotacao.service.impl;
 
-import com.haberkamp.sessaodevotacao.dto.PautaDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaRequestDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaResponseDTO;
 import com.haberkamp.sessaodevotacao.entity.Pauta;
 import com.haberkamp.sessaodevotacao.mapper.PautaMapper;
 import com.haberkamp.sessaodevotacao.repository.PautaRepository;
@@ -22,19 +23,19 @@ public class PautaServiceImpl implements PautaService {
     private PautaMapper mapper = Mappers.getMapper(PautaMapper.class);
 
     @Override
-    public PautaDTO save(PautaDTO pauta) {
+    public PautaResponseDTO save(PautaRequestDTO pauta) {
 
         Pauta pautaEntity = mapper.toEntity(pauta);
 
         pautaEntity = repository.save(pautaEntity);
 
-        PautaDTO pautaDTO = mapper.toDto(pautaEntity);
+        PautaResponseDTO pautaDTO = mapper.toDto(pautaEntity);
 
         return pautaDTO;
     }
 
     @Override
-    public PautaDTO abrirPauta(PautaDTO pauta) {
+    public PautaResponseDTO abrirPauta(PautaRequestDTO pauta) {
 
         Pauta entity = repository.findById(pauta.getId()).orElseThrow(() -> new EntityNotFoundException("Pauta nao cadastrada"));
 

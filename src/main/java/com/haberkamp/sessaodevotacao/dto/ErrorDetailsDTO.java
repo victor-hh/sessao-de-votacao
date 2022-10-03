@@ -1,4 +1,4 @@
-package com.haberkamp.sessaodevotacao.dto.response;
+package com.haberkamp.sessaodevotacao.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

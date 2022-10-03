@@ -2,6 +2,7 @@ package com.haberkamp.sessaodevotacao.service.impl;
 
 import com.haberkamp.sessaodevotacao.dto.ContagemVotosDTO;
 import com.haberkamp.sessaodevotacao.dto.VotoDTO;
+import com.haberkamp.sessaodevotacao.entity.VotoId;
 import com.haberkamp.sessaodevotacao.exceptions.BusinessException;
 import com.haberkamp.sessaodevotacao.mapper.VotoMapper;
 import com.haberkamp.sessaodevotacao.repository.VotoRepository;

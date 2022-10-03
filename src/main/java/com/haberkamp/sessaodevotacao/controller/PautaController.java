@@ -1,15 +1,16 @@
 package com.haberkamp.sessaodevotacao.controller;
 
-import com.haberkamp.sessaodevotacao.dto.PautaDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaRequestDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaResponseDTO;
 import com.haberkamp.sessaodevotacao.entity.Pauta;
 
 import java.util.List;
 
 public interface PautaController {
 
-    PautaDTO cadastrar(PautaDTO pauta);
+    PautaResponseDTO cadastrar(PautaRequestDTO pauta);
 
-    PautaDTO abrirPauta(PautaDTO pauta);
+    PautaResponseDTO abrirPauta(PautaRequestDTO pauta);
 
     List<Pauta> findAll();
 }

@@ -1,12 +1,13 @@
 package com.haberkamp.sessaodevotacao.service;
 
-import com.haberkamp.sessaodevotacao.dto.PautaDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaRequestDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaResponseDTO;
 
 public interface PautaService {
 
-    PautaDTO save(PautaDTO pauta);
+    PautaResponseDTO save(PautaRequestDTO pauta);
 
-    PautaDTO abrirPauta(PautaDTO pauta);
+    PautaResponseDTO abrirPauta(PautaRequestDTO pauta);
 
     Boolean isPautaAberta(Long pautaId);
 

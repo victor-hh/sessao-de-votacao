@@ -14,13 +14,12 @@ import javax.persistence.*;
 public class Voto {
 
     @Id
-//    @Column(name ="pauta_id")
     private Long pautaId;
 
     @Id
     private Long associadoId;
 
-    @Column(name = "voto", length = 3)
+    @Column(name = "voto", length = 3, updatable = false, nullable = false)
     private String voto;
 
 }
