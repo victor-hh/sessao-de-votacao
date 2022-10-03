@@ -7,6 +7,7 @@ import com.haberkamp.sessaodevotacao.exceptions.BusinessException;
 import com.haberkamp.sessaodevotacao.mapper.PautaMapper;
 import com.haberkamp.sessaodevotacao.repository.PautaRepository;
 import com.haberkamp.sessaodevotacao.service.PautaService;
+import net.bytebuddy.asm.Advice;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,9 +60,13 @@ public class PautaServiceImpl implements PautaService {
     public Boolean isPautaAberta(Long pautaId) {
         Optional<Pauta> entity = repository.findById(pautaId);
         if (entity.isPresent()) {
-            return entity.get().getHorarioFim().isAfter(LocalDateTime.now()) ? true : false;
+            LocalDateTime horarioFim = entity.get().getHorarioFim();
+            if (horarioFim == null) {
+                return false;
+            }
+            return horarioFim.isAfter(LocalDateTime.now()) ? true : false;
         }
-        return false;
+        throw new BusinessException("Pauta não cadastrada");
     }
 
 }
