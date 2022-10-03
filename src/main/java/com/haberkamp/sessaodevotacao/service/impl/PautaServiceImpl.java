@@ -3,6 +3,7 @@ package com.haberkamp.sessaodevotacao.service.impl;
 import com.haberkamp.sessaodevotacao.dto.PautaRequestDTO;
 import com.haberkamp.sessaodevotacao.dto.PautaResponseDTO;
 import com.haberkamp.sessaodevotacao.entity.Pauta;
+import com.haberkamp.sessaodevotacao.exceptions.BusinessException;
 import com.haberkamp.sessaodevotacao.mapper.PautaMapper;
 import com.haberkamp.sessaodevotacao.repository.PautaRepository;
 import com.haberkamp.sessaodevotacao.service.PautaService;
@@ -36,6 +37,14 @@ public class PautaServiceImpl implements PautaService {
 
     @Override
     public PautaResponseDTO abrirPauta(PautaRequestDTO pauta) {
+
+        if (pauta.getTempoAbertoEmMinutos() == null) {
+            pauta.setTempoAbertoEmMinutos(1L);
+        }
+
+        if (isPautaAberta(pauta.getId())) {
+            throw new BusinessException("A pauta já está aberta");
+        }
 
         Pauta entity = repository.findById(pauta.getId()).orElseThrow(() -> new EntityNotFoundException("Pauta nao cadastrada"));
 
