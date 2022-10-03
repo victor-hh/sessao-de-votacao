@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "a3893d1b-444e-4329-a0b3-591f6827bc4a",
+		"name": "Sessao de votação",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14436166"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Pauta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tema\":\"Votar no lula\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/pauta/cadastrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"pauta",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Abrir Pauta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":18,\r\n    \"tempoAbertoEmMinutos\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/pauta/abrir",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"pauta",
+						"abrir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Votar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pautaId\":\"18\",\r\n    \"associadoId\":\"9\",\r\n    \"voto\":\"Não\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/voto/votar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"voto",
+						"votar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contar Votos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/voto/contar/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"voto",
+						"contar",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
