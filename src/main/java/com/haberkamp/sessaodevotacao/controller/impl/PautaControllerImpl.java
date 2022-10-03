@@ -1,7 +1,8 @@
 package com.haberkamp.sessaodevotacao.controller.impl;
 
 import com.haberkamp.sessaodevotacao.controller.PautaController;
-import com.haberkamp.sessaodevotacao.dto.PautaDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaRequestDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaResponseDTO;
 import com.haberkamp.sessaodevotacao.entity.Pauta;
 import com.haberkamp.sessaodevotacao.repository.PautaRepository;
 import com.haberkamp.sessaodevotacao.service.PautaService;
@@ -22,13 +23,13 @@ public class PautaControllerImpl implements PautaController {
 
     @Override
     @PostMapping(value = "/cadastrar", produces = "application/json", consumes = "application/json")
-    public PautaDTO cadastrar(@RequestBody PautaDTO pauta) {
+    public PautaResponseDTO cadastrar(@RequestBody PautaRequestDTO pauta) {
         return service.save(pauta);
     }
 
     @Override
     @PutMapping(value = "/abrir", produces = "application/json", consumes = "application/json")
-    public PautaDTO abrirPauta(@RequestBody PautaDTO pauta) {
+    public PautaResponseDTO abrirPauta(@RequestBody PautaRequestDTO pauta) {
         return service.abrirPauta(pauta);
     }
 

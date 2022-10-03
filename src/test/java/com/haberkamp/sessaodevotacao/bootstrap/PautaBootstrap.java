@@ -1,7 +1,7 @@
 package com.haberkamp.sessaodevotacao.bootstrap;
 
 
-import com.haberkamp.sessaodevotacao.dto.PautaDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaRequestDTO;
 import com.haberkamp.sessaodevotacao.entity.Pauta;
 import lombok.experimental.UtilityClass;
 
@@ -14,21 +14,21 @@ public class PautaBootstrap {
                 .build();
     }
 
-    public PautaDTO getPautaDTO() {
-        return PautaDTO.builder()
+    public PautaRequestDTO getPautaDTO() {
+        return PautaRequestDTO.builder()
                 .tema("test")
                 .build();
     }
 
-    public PautaDTO getAbrirPautaDTO() {
-        return PautaDTO.builder()
+    public PautaRequestDTO getAbrirPautaDTO() {
+        return PautaRequestDTO.builder()
                 .id(1L)
                 .tempoAbertoEmMinutos(5L)
                 .build();
     }
 
-    public PautaDTO getAbrirPautaDTO(Long pautaId) {
-        return PautaDTO.builder()
+    public PautaRequestDTO getAbrirPautaDTO(Long pautaId) {
+        return PautaRequestDTO.builder()
                 .id(pautaId)
                 .tempoAbertoEmMinutos(5L)
                 .build();

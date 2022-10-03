@@ -1,12 +1,13 @@
 package com.haberkamp.sessaodevotacao.dto;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class PautaDTO {
+public class PautaResponseDTO {
 
     private Long id;
 
@@ -16,6 +17,5 @@ public class PautaDTO {
 
     private LocalDateTime horarioFim;
 
-    private Long tempoAbertoEmMinutos;
 
 }

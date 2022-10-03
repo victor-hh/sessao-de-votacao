@@ -3,7 +3,8 @@ package com.haberkamp.sessaodevotacao.service;
 import com.haberkamp.sessaodevotacao.bootstrap.PautaBootstrap;
 import com.haberkamp.sessaodevotacao.bootstrap.VotoBootstrap;
 import com.haberkamp.sessaodevotacao.dto.ContagemVotosDTO;
-import com.haberkamp.sessaodevotacao.dto.PautaDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaRequestDTO;
+import com.haberkamp.sessaodevotacao.dto.PautaResponseDTO;
 import com.haberkamp.sessaodevotacao.entity.Voto;
 import com.haberkamp.sessaodevotacao.repository.VotoRepository;
 import org.junit.jupiter.api.AfterEach;
@@ -35,7 +36,7 @@ public class VotoServiceTest {
 
     @Test
     void salvaNovoVotoEmPautaExistente() throws Exception {
-        PautaDTO pauta = pautaService.save(PautaBootstrap.getPautaDTO());
+        PautaResponseDTO pauta = pautaService.save(PautaBootstrap.getPautaDTO());
         pautaService.abrirPauta(PautaBootstrap.getAbrirPautaDTO(pauta.getId()));
 
         service.save(VotoBootstrap.getDto(pauta.getId()));
